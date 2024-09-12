@@ -1,6 +1,6 @@
 # Notation
 - $\in$ means "element of" a set
-- $\rm I\!R$ is the space of real numbers
+- $`\rm I\!R`$ is the space of real numbers
 - $\rm I\!R^n$ is the space of real-valued vectors of dimension $n$ (implicitly $n\times 1$)
 - $\rm I\!R^{n\times m}$ is the space of real-valued matrices of dimension $n\times m$
 - $\forall$ means "for all", e.g. "$0x=0\forall x\in\rm I\!R$" means "zero times $x$ is zero for any real number $x$".
