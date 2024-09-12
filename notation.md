@@ -13,7 +13,7 @@
     * $`A_i`$ is the $`i`$th row of $`A`$, $`\text{dim}(A_i)=m`$
     * The $`j`$th column of $`A`$ can be found via $`A_j^T`$, $`\text{dim}(A_j^T)=n`$
 - $`\hat y`$ denotes that the quantity $`y`$ is estimated
-- $`f:X\rightarrow Y`$ defines the function $`f`$ mapping the set $`X`$ to the set $`Y`$, i.e. "$y=f(x),\ x\in X,\ y\in Y`$"
+- $`f:X\rightarrow Y`$ defines the function $`f`$ mapping the set $`X`$ to the set $`Y`$, i.e. "$`y=f(x),\ x\in X,\ y\in Y`$"
 - The inner product (also called the dot product) of two vectors is given by $`x^Ty=\sum_{i=0}^nx_iy_i\in\mathbb{R}`$
 - $`\nabla`$ is the gradient operator
     * Let $`f: \mathbb{R}\times \mathbb{R}\rightarrow \mathbb{R},\ f=f(p,q)`$, then $`\nabla f=\begin{bmatrix}\frac{\partial f}{\partial p}\ \frac{\partial f}{\partial q}\end{bmatrix}^T`$
