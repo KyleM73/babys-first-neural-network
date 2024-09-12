@@ -4,11 +4,11 @@ We will start by deriving a simple linear regression model with weights found vi
 
 ## Preliminaries: Linear Regression via Gradient Descent
 
-Let $x \in\rm I\!R^m,\ y \in\rm I\!R^n$ be $m$ and $n$ dimensional vectors forming an input-output pair of data. Let $D=\{(x,y)_i\}_{i=0}^N$ be a dataset of $N$ input-output pairs. For now let's assume that the relationship between $x$ and $y$ can be modeled by the affine matrix equation
+Let $x \in\mathbb{R}^m,\ y \in\mathbb{R}^n$ be $m$ and $n$ dimensional vectors forming an input-output pair of data. Let $D=\{(x,y)_i\}_{i=0}^N$ be a dataset of $N$ input-output pairs. For now let's assume that the relationship between $x$ and $y$ can be modeled by the affine matrix equation
 
 $$\hat y(x) = W^Tx+w_0$$
 
-where $W \in\rm I\!R^{m \times n},\ w_0 \in\rm I\!R^n$ are weight vectors such that $\hat y_i(x) = W_i^Tx+w_{0,i}$ represents the $i$th element of $\hat y(x)$. We can express this relation graphically by representing each input and output as a node, and each edge between them a weighted connection. Let's look at a specific example for a linear model with three inputs and one output:
+where $W \in\mathbb{R}^{m \times n},\ w_0 \in\mathbb{R}^n$ are weight vectors such that $\hat y_i(x) = W_i^Tx+w_{0,i}$ represents the $i$th element of $\hat y(x)$. We can express this relation graphically by representing each input and output as a node, and each edge between them a weighted connection. Let's look at a specific example for a linear model with three inputs and one output:
 
 ```mermaid
 ---
@@ -41,7 +41,7 @@ via mean squared error and the $L_2$ norm. This gives us a training objective
 
 $$\min_{W,w_0}L(y,W^Tx+w_0)\quad \forall (x,y)\in D.$$
 
-With only slight abuse of notation, the optimal weights can be found analytically as $\widetilde W=(X^TX)^{-1}X^TY$ where $X,Y=\begin{bmatrix}\{(\widetilde x,y)_i\}_{i=0}^N\end{bmatrix}$ and we augment $x$ and $W$ as $\widetilde x = \begin{bmatrix}x^T\ 1\end{bmatrix}^T\in\rm I\!R^{m+1},\ \widetilde W = \begin{bmatrix}W^T\ w_0\end{bmatrix}^T\in\rm I\!R^{m+1 \times n}$ to represent the affine map as a linear map, i.e. $\hat y(x)=\widetilde W^T\widetilde x$. However, we will not use this approach, as finding the analytical solution for large $N$ (or $m$, or $n$) may be infeasible, and, more importantly, when we extend our linear regression model to a neural network, this approach will prove to be intractable.
+With only slight abuse of notation, the optimal weights can be found analytically as $\widetilde W=(X^TX)^{-1}X^TY$ where $X,Y=\begin{bmatrix}\{(\widetilde x,y)_i\}_{i=0}^N\end{bmatrix}$ and we augment $x$ and $W$ as $\widetilde x = \begin{bmatrix}x^T\ 1\end{bmatrix}^T\in\mathbb{R}^{m+1},\ \widetilde W = \begin{bmatrix}W^T\ w_0\end{bmatrix}^T\in\mathbb{R}^{m+1 \times n}$ to represent the affine map as a linear map, i.e. $\hat y(x)=\widetilde W^T\widetilde x$. However, we will not use this approach, as finding the analytical solution for large $N$ (or $m$, or $n$) may be infeasible, and, more importantly, when we extend our linear regression model to a neural network, this approach will prove to be intractable.
 
 Instead, we will use an iterative algorithm called "gradient descent" to numerically approximate the optimal values of $W$ and $w_0$. We start by initializing $W$ and $w_0$ with random weights sampled from $\mathcal{N}(0,\frac{1}{m})$. Then, the weights are iteratively updated via the update rules:
 
@@ -58,7 +58,7 @@ $$\frac{\partial L}{\partial w_0}=\frac{\partial L}{\partial\hat y}\frac{\partia
 
 ## Exercise 1: Gradient Descent for a Linear Regression Model
 
-We now have the tools to derive the weight update for the linear model explicitly. For this exercise only consider the loss for a single input-output pair, i.e. $L(y,\hat y)=||y(x)-\hat y(x)||^2_2 \in\rm I\!R$. Find each expression for the general case of an $m$ dimensional input and an $n$ dimensional output. It may be helpful to first find the shape of each quantity. Refer to the notes on [notation](notation.md) if you need a refresher on matrix- and vector-valued derivatives.
+We now have the tools to derive the weight update for the linear model explicitly. For this exercise only consider the loss for a single input-output pair, i.e. $L(y,\hat y)=||y(x)-\hat y(x)||^2_2 \in\mathbb{R}$. Find each expression for the general case of an $m$ dimensional input and an $n$ dimensional output. It may be helpful to first find the shape of each quantity. Refer to the notes on [notation](notation.md) if you need a refresher on matrix- and vector-valued derivatives.
 
 1.a) $\nabla L_{\hat y}=$
 
@@ -79,12 +79,12 @@ must hold. An example function that satisfies the above properties is $\eta(t)=\
 
 ## Answer Key
 
-1.a) $-2(y-\hat y)\in\rm I\!R^n$
+1.a) $-2(y-\hat y)\in\mathbb{R}^n$
 
-1.b) $\begin{bmatrix}x^T &  &  &   \\&  x^T&  &  \\&  & \ddots  &  \\&  &  & x^T\end{bmatrix}\in\rm I\!R^{n\times mn}$ or, equivalently, $x^T\in\rm I\!R^m$
+1.b) $\begin{bmatrix}x^T &  &  &   \\&  x^T&  &  \\&  & \ddots  &  \\&  &  & x^T\end{bmatrix}\in\mathbb{R}^{n\times mn}$ or, equivalently, $x^T\in\mathbb{R}^m$
 
-1.c) $I\in\rm I\!R^{n\times n}$
+1.c) $I\in\mathbb{R}^{n\times n}$
 
-1.d) $\nabla L_{\hat y}\nabla\hat y_W=-2(y-\hat y)x^T\in\rm I\!R^{n\times m}$
+1.d) $\nabla L_{\hat y}\nabla\hat y_W=-2(y-\hat y)x^T\in\mathbb{R}^{n\times m}$
 
-1.e) $\nabla L_{\hat y}\nabla\hat y_{w_0}=-2(y-\hat y)\in\rm I\!R^n$
+1.e) $\nabla L_{\hat y}\nabla\hat y_{w_0}=-2(y-\hat y)\in\mathbb{R}^n$
