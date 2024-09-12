@@ -3,11 +3,11 @@
 - $\mathbb{R}$ is the space of real numbers
 - $\mathbb{R}^n$ is the space of real-valued vectors of dimension $n$ (implicitly $n\times 1$)
 - $\mathbb{R}^{n\times m}$ is the space of real-valued matrices of dimension $n\times m$
-- $\forall$ means "for all", e.g. "$0x=0\forall x\in\mathbb{R}$" means "zero times $x$ is zero for any real number $x$".
+- $\forall$ means "for all", e.g. "$`0x=0\forall x\in\mathbb{R}`$" means "zero times $x$ is zero for any real number $x$".
 - Lowercase letters denote a (column) vector, e.g. $x,y\in\mathbb{R}^n$
 - Uppercase letters denote a matrix, e.g. $A,B\in\mathbb{R}^{n\times m}$
-- The vector transpose $x^T\in\mathbb{R}^n$ swaps between column and row vectors, e.g. $\begin{bmatrix}x_{0}\ x_{1}\end{bmatrix}^T=\begin{bmatrix}x_{0}\\ x_{1}\end{bmatrix}$
-- The matrix transpose $A^T\in\mathbb{R}^{m\times n}$ swaps the last two dimensions of a matrix, e.g. $\begin{bmatrix}a_{0,0}\ a_{0,1}\ a_{0,2}\\ a_{1,0}\ a_{1,1}\ a_{1,2}\end{bmatrix}^T=\begin{bmatrix}a_{0,0}\ a_{1,0}\\ a_{0,1}\ a_{1,1}\\ a_{0,2}\ a_{1,2} \end{bmatrix}$
+- The vector transpose $x^T\in\mathbb{R}^n$ swaps between column and row vectors, e.g. $`\begin{bmatrix}x_{0}\ x_{1}\end{bmatrix}^T=\begin{bmatrix}x_{0}\\ x_{1}\end{bmatrix}`$
+- The matrix transpose $A^T\in\mathbb{R}^{m\times n}$ swaps the last two dimensions of a matrix, e.g. $`\begin{bmatrix}a_{0,0}\ a_{0,1}\ a_{0,2}\\ a_{1,0}\ a_{1,1}\ a_{1,2}\end{bmatrix}^T=\begin{bmatrix}a_{0,0}\ a_{1,0}\\ a_{0,1}\ a_{1,1}\\ a_{0,2}\ a_{1,2} \end{bmatrix}`$
 - Vectors and matrices are indexed in (row, column) order
     * $A_{i,j}$ is the element of $A$ in the $i$th row and the $j$th column, $\text{dim}(A_{i,j})=1$
     * $A_i$ is the $i$th row of $A$, $\text{dim}(A_i)=m$
